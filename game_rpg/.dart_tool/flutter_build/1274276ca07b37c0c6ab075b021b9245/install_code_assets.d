@@ -1,0 +1,1 @@
+ C:\\Users\\Aspire\\StudioProjects\\game_rpg\\.dart_tool\\flutter_build\\1274276ca07b37c0c6ab075b021b9245\\native_assets.json: 

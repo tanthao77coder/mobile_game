@@ -1,0 +1,62 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services'  // FlutterFire Configuration
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"  // Flutter Gradle Plugin
+}
+
+android {
+    namespace = "com.example.game_rpg"
+    ndkVersion = "27.0.12077973"
+    compileSdkVersion = 35
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.game_rpg"
+        minSdk = 23
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Thêm cấu hình ký nếu cần cho release
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        // Tùy chọn lint nếu bạn cần
+        abortOnError false
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        // Định nghĩa các flavors nếu cần thiết
+        // sampleFlavor {
+        //     dimension "default"
+        // }
+    }
+}
+
+flutter {
+    source = "../.."  // Đường dẫn tới source của Flutter
+}
+
+dependencies {
+    implementation 'com.google.firebase:firebase-auth:21.0.3'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.google.android.gms:play-services-auth:20.0.1'
+
+}
